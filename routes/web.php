@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test-db-connection', function () {
+    try {
+        $databases = DB::connection('mongodb')->getMongoClient()->listDatabases();
+        return "MongoDB connection OK";
+    } catch (\Exception $e) {
+        return "MongoDB connection failed: " . $e->getMessage();
+    }
+});
