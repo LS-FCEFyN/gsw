@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LeaderBoard;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/LeaderBoard', [LeaderBoard::class, 'getLeaderBoard']);
+Route::post('/LeaderBoard', [LeaderBoard::class, 'postLeaderBoard']);
