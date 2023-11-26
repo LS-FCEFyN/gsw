@@ -15,6 +15,7 @@ class GameAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $header = $request->header('X-GAME-ID');
         return $next($request);
     }
 }
